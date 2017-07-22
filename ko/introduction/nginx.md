@@ -76,3 +76,7 @@ CentOS에서는 `/etc/nginx/snippets` 폴더에 잡다한 설정파일들을 모
 
     systemctl start nginx
     systemctl enable nginx
+
+만약 재시작시 오류가 발생한다면 `/var/log/nginx/error.log` 에러 로그를 확인하시거나, 아래의 명령으로 서비스 상태를 점검하시기 바랍니다.
+
+    systemctl status nginx
