@@ -47,6 +47,11 @@ git으로 다운로드하려면 설치를 원하시는 폴더에서 아래와 �
 	mv rhymix/* .
 	shopt -u dotglob
 
+git으로 다운로드하면 기본으로 master 버전이 선택됩니다.
+develop 버전으로 전환하시려면 아래의 명령을 내리면 됩니다.
+
+    git checkout develop
+
 ### 퍼미션 조정
 
 라이믹스를 다운로드한 경로에 `files` 폴더를 생성하고, 퍼미션을 777 또는 707로 변경합니다.
