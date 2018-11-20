@@ -20,8 +20,9 @@ cron으로 실행할 수 있는 쉘 스크립트들은 `common/scripts` 폴더�
 - `clean_empty_dirs.php`: 첨부파일, 회원정보, 섬네일 폴더 내에 남아 있는 빈 폴더들을 제거합니다.
 - `clean_garbage_files.php`: 파일만 업로드하고 글 작성을 취소하여 남은 파일, 대용량 업로드가 중단되어 남은 파일 등을 제거합니다.
   문서나 댓글 등에 종속되지 않고 10일 이상 지난 파일을 제거 대상으로 봅니다.
-- `clean_old_notifications.php`: 확인하지 않고 30일 이상 지난 알림을 삭제합니다.
-- `clean_old_thumbnails.php`: 생성한 지 90일 이상 지난 섬네일을 삭제합니다.
+- `clean_old_logs.php`: 30일 이상 지난 메일 및 SMS 발송 로그, 스팸필터 로그 등을 삭제합니다.
+- `clean_old_notifications.php`: 30일 이상 지난 알림을 삭제합니다.
+- `clean_old_thumbnails.php`: 90일 이상 지난 섬네일을 삭제합니다.
   오래된 글의 섬네일도 표시할 필요가 있는 웹진형 게시판을 운영하는 경우에는 사용하지 마시기 바랍니다.
   삭제한 섬네일을 다시 생성하려면 더 많은 서버 자원이 소요됩니다.
 
