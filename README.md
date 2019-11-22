@@ -6,7 +6,7 @@
   - [설치 환경](./ko/introduction/requirements.md)
   - [라이믹스 설치](./ko/introduction/install.md)
   - [라이믹스 업데이트](./ko/introduction/update.md)
-  - [XE 1.x에서 업그레이드](./ko/introduction/./ko/introduction/xe-upgrade.md)
+  - [XE 1.x에서 업그레이드](./ko/introduction/xe-upgrade.md)
   - [서드파티 자료 호환성 체크리스트](thirdparty-checklist.md)
   - [nginx 설정 방법](./ko/introduction/nginx.md)
   - [도메인 변경](./ko/introduction/domain-change.md)
