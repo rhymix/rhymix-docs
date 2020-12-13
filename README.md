@@ -19,4 +19,3 @@
   - [표준 시간대 처리 방식](./ko/misc/timezone.md)
   - [포토스와이프 연동하기](./ko/misc/photoswipe.md)
   - [Crontab 설정 방법](./ko/misc/crontab.md)
-  - [레이아웃 주제 색상 지정하기](./ko/misc/theme-color.md)
