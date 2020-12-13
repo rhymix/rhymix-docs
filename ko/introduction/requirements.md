@@ -3,7 +3,7 @@
 
 라이믹스를 설치하고 원활하게 사용하려면 아래와 같은 조건이 갖추어져야 합니다.
 
-  - PHP 7.0 이상
+  - PHP 7.0 이상 (PHP 7.2 이상 권장)
   - MySQL 5.0.7 이상 (MariaDB 권장)
   - 필수 PHP 모듈
     - curl
@@ -11,7 +11,15 @@
     - iconv 또는 mbstring
     - json
     - mcrypt 또는 openssl
-    - simplexml
+    - PDO
+    - SimpleXML
+    - Zend OPcache
+  - 권장 PHP 모듈
+    - apcu (캐시 사용을 통해 성능 향상 가능)
+    - exif (이미지 자동 회전 기능에 필요)
+    - fileinfo (첨부파일 보안 검사에 필요)
+    - intl (한글도메인 사용시 성능 향상 효과 있음)
+    - zip (추후 필수 모듈로 지정될 가능성 있음)
 
 아파치 서버인 경우 mod_rewrite를 권장하나, 필수는 아닙니다.
 nginx에서 rewrite를 설정하는 방법은 [여기](nginx.md)를 참고하십시오.
@@ -29,6 +37,8 @@ nginx에서 rewrite를 설정하는 방법은 [여기](nginx.md)를 참고하십
 
 `session.auto_start` = `off`로 설정되어 있어야 합니다.
 최근 호스팅 환경에서 이 설정이 문제가 되는 경우는 거의 없습니다.
+단, 호스팅 업체에서 제공하는 무료 서브도메인(예: ID.업체명.com)을 이용할 경우
+쿠키 충돌로 인해 세션이 작동하지 않을 수 있으니 주의하시기 바랍니다.
 
 `upload_max_filesize` 설정을 통해 한 번에 업로드할 수 있는 파일 용량을 조정할 수 있습니다.
 일반적으로 `upload_max_filesize`보다 `post_max_size`가 커야 하고, `post_max_size`보다 `memory_limit`이 커야 합니다.
