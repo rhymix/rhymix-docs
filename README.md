@@ -12,6 +12,7 @@
   - [nginx 설정 방법](./ko/introduction/nginx.md)
   - [도메인 변경](./ko/introduction/domain-change.md)
 - [플러그인 제작](./ko/plugin/index.md)
+  - [DB 쿼리 operator](./ko/plugin/dbquery/operation.md)
 - [테마 제작](./ko/theme/index.md)
 - [XE 호환 기능](./ko/xecompat/index.md)
 - [클래스 및 함수 목록](./ko/reference/index.md)
