@@ -10,6 +10,7 @@
   - [서드파티 자료 호환성 체크리스트](./ko/introduction/thirdparty-checklist.md)
   - [nginx 설정 방법](./ko/introduction/nginx.md)
   - [도메인 변경](./ko/introduction/domain-change.md)
+  - [GPL: 개발자, 디자이너, 사용자 등의 권리와 의무](./ko/introduction/license.md)
 - [플러그인 제작](./ko/plugin/index.md)
 - [테마 제작](./ko/theme/index.md)
 - [XE 호환 기능](./ko/xecompat/index.md)
