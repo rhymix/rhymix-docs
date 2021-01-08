@@ -204,4 +204,4 @@ composer 라이브러리를 업데이트할 때는 라이믹스에서 공식적�
 인클루드되는 시점에 오류가 발생하는 것을 막아야 합니다.
 또한 불필요한 라이브러리가 들어오지 않도록 반드시 아래의 명령으로 업데이트합니다.
 
-    composer update --no-dev --optimize-autoloader
+    composer update --no-dev --ignore-platform-reqs --optimize-autoloader
