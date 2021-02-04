@@ -15,21 +15,17 @@ PHP는 국내외 대부분의 웹호스팅 서버에서 간단히 업로드하�
 
 ### 라이믹스 최신 버전 다운로드
 
-라이믹스 GitHub 저장소에서 아래의 두 버전 중 하나를 다운받습니다.
+라이믹스 홈페이지에서 정식버전 또는 Development Snapshot을 다운로드합니다.
 
-- [master](https://github.com/rhymix/rhymix/archive/master.zip)
-- [develop](https://github.com/rhymix/rhymix/archive/develop.zip)
-
-master는 어느 정도 안정화가 이루어진 버전으로, 한 달에 1~2번 업데이트됩니다.
-develop는 개발이 활발하게 이루어지고 있는 버전으로, 수시로 업데이트됩니다.
-master에서 발생하는 버그가 develop에서 수정되었을 수도 있지만,
-반대로 develop에서 새로 생긴 버그가 아직 고쳐지지 않았을 수도 있으므로
-develop 사용시에는 수시로 업데이트하실 준비가 되어 있어야 합니다.
-원하시는 업데이트 주기에 따라 선택하시기 바랍니다.
+Development Snapshot은 "develop 브랜치"라고도 부르는데, 개발이 활발하게 이루어지고 있으며 수시로 업데이트됩니다.
+정식버전에서 발생하는 버그가 develop에서 수정되었을 수도 있지만,
+반대로 개발 도중 실수로 발생한 버그가 아직 고쳐지지 않았을 수도 있으므로
+Development Snapshot을 사용하실 경우 수시로 업데이트하실 준비가 되어 있어야 합니다.
+원하시는 업데이트 주기에 따라 버전을 선택하시기 바랍니다.
 
 파일을 다운받은 후에는 압축을 풀어 FTP 또는 SFTP로 서버에 업로드합니다.
 압축파일 그대로 업로드한 후 SSH(터미널)에서 `unzip` 명령으로 압축을 풀어도 됩니다.
-단, 서버에서 압축을 풀면 `rhymix-master` 또는 `rhymix-develop` 폴더가 생성되므로
+단, 서버에서 압축을 풀면 `rhymix` 폴더가 생성되므로
 이 폴더의 내용을 상위 폴더로 옮겨주어야 할 수도 있습니다.
 이 때 `.htaccess` 등 숨김파일도 모두 옮겨지도록 주의하시기 바랍니다.
 
@@ -54,8 +50,8 @@ git으로 다운로드하려면 설치를 원하시는 폴더에서 아래와 �
 	mv rhymix/* .
 	shopt -u dotglob
 
-git으로 다운로드하면 기본으로 master 버전이 선택됩니다.
-develop 버전으로 전환하시려면 아래의 명령을 내리면 됩니다.
+git으로 다운로드하면 기본으로 정식버전(master 브랜치)이 선택됩니다.
+develop 브랜치로 전환하시려면 아래의 명령을 내리면 됩니다.
 
     git checkout develop
 
