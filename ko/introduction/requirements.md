@@ -12,7 +12,7 @@
     - iconv 또는 mbstring
     - json
     - mcrypt 또는 openssl
-    - PDO
+    - PDO_MySQL
     - SimpleXML
     - Zend OPcache
   - 권장 PHP 모듈
