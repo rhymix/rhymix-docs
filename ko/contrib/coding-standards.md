@@ -148,7 +148,7 @@ PHPDoc 주석 작성에 어려움이 있는 경우, 다른 클래스와 함수�
          *
          * @param string $member_srl
          */
-        public function __construct($member_srl)
+        public function __construct(int $member_srl)
         {
             // 생략
         }
@@ -158,7 +158,7 @@ PHPDoc 주석 작성에 어려움이 있는 경우, 다른 클래스와 함수�
          *
          * @return bool
          */
-        public function isBar()
+        public function isBar(): bool
         {
             return true;
         }
@@ -166,6 +166,38 @@ PHPDoc 주석 작성에 어려움이 있는 경우, 다른 클래스와 함수�
 
 불가피한 경우를 제외하면 주석은 영문으로 쓰는 것을 원칙으로 하며,
 대문자로 시작하는 완전한 문장으로 이루어져야 합니다.
+
+### 함수의 가시성 및 타입 선언
+
+신규 추가하는 클래스 메소드라면 가시성, 각 파라미터의 타입, 그리고 반환 타입을 선언해야 합니다.
+`public`이 아닌 메소드나 속성의 이름은 원칙적으로 언더바(`_`)로 시작합니다.
+단, 하위 호환성을 위해 가시성이나 반환 타입 등을 엄격하게 제한할 수 없는 경우에는 예외로 합니다.
+
+    public function getFoobarList(string $foobar, int $count): array
+    {
+        return [];
+    }
+
+특정 클래스의 인스턴스를 받거나 반환하는 메소드의 경우, 반드시 타입을 선언해야 합니다.
+
+    public function getFoobar(int $foobar_srl): FoobarItem
+    {
+        return new FoobarItem($foobar_srl);
+    }
+
+    protected function _arrangeFoobar(FoobarItem $foobar): \BaseObject
+    {
+        return new \BaseObject(0, 'success_inserted');
+    }
+
+참고로 쿼리 결과는 `Rhymix\Framework\Helpers\DBResultHelper` 클래스의 인스턴스로 반환됩니다.
+
+    use Rhymix\Framework\Helpers\DBResultHelper;
+
+    public function updateFoobar(object $args): DBResultHelper
+    {
+        return executeQuery('module.updateFoobar', $args);
+    }
 
 ### 커밋 메시지
 
@@ -197,7 +229,7 @@ PHPDoc 주석 작성에 어려움이 있는 경우, 다른 클래스와 함수�
 지원하지 않는 버전에서도 단지 그 기능을 사용할 수 없을 뿐 그 밖의 오류가 발생해서는 안 됩니다.
 
 문자열과 문자열, 정수와 정수를 비교할 때는 가능하면 `==` 대신 `===`을 사용합니다.
-실제 자료형이 다를 가능성이 있는 경우 `intval()`, `strval()` 등의 함수와 함께 사용합니다.
+실제 자료형이 다를 가능성이 있는 경우 `intval()`, `strval()` 등의 함수 또는 `(int)`와 같은 type cast를 활용합니다.
 정수는 항상 64비트 범위를 가지는 것으로 가정합니다.
 
 전역 상수를 참조할 때는 `\RX_CLIENT_IP`와 같이 `\`를 앞에 붙여서,
