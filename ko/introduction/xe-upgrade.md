@@ -103,3 +103,4 @@ XE에 포함되어 있던 아래의 폴더들은 라이믹스에서는 더이상
   - `common/xeicon` (다른 경로로 옮겼음)
   - `doxygen` (불필요)
   - `libs` (다른 경로로 옮겼음)
+  - `modules/editor/skins/xpresseditor` (CKEditor로 대체됨)
