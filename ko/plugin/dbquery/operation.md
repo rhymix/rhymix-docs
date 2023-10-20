@@ -1,4 +1,7 @@
-# Operation 속성
+DB 쿼리 operator
+-----------------
+
+### operation 속성
 
 `<condition>` 요소의 `operation` 속성은 조건의 연산자를 지정합니다. 아래와 같은 연산자를 사용할 수 있습니다.
 
@@ -36,6 +39,6 @@
 | null           | column IS NULL                                                        | >= 2.0.0  |
 | notnull        | column IS NOT NULL                                                    | >= 2.0.0  |
 
-## References
+#### References
 
 [Pull request #1322](https://github.com/rhymix/rhymix/pull/1332)
