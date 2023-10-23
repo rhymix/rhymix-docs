@@ -441,9 +441,9 @@ v1처럼 태그를 사용하는 문법도 허용하며, 이 경우 `src` 속성 
 
 ```
 [v2 정규 문법]
-@includeIf('../dir/filename)
-@includeWhen($condition, '../dir/filename')
-@includeUnless($condition, '../dir/filename')
+@includeIf ('../dir/filename)
+@includeWhen ($condition, '../dir/filename')
+@includeUnless ($condition, '../dir/filename')
 ```
 
 그 중 2가지 조건은 v1 호환 문법으로도 구현할 수 있습니다. v1 문법의 `cond`에 해당합니다.
@@ -471,7 +471,7 @@ v1처럼 태그를 사용하는 문법도 허용하며, 이 경우 `src` 속성 
 ```
 [A.blade.php]
 
-@include('B', ['title' => '제목', 'content' => '내용'])
+@include ('B', ['title' => '제목', 'content' => '내용'])
 ```
 
 ```
