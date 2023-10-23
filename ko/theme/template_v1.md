@@ -125,6 +125,7 @@ HTML 코드 중간에 거추장스러운 if문을 끼워넣는 불편을 크게 
 다른 템플릿 파일을 인클루드하려면 아래와 같은 문법을 사용합니다.
 현재 파일을 기준으로 한 상대경로를 입력해야 하고, 확장자 `.html`은 생략할 수 있습니다.
 
+	[v1 권장 문법]
 	<include target="dir/filename.html" />
 
 거슬러 올라가야 하는 경로가 많은 경우, "처음"을 의미하는 `^` 문자를 사용하여
@@ -132,10 +133,12 @@ HTML 코드 중간에 거추장스러운 if문을 끼워넣는 불편을 크게 
 `../../../../`를 반복하는 것보다 간결하고, 현재 템플릿의 경로와 무관하므로
 파일 이동 등 유지보수가 용이합니다.
 
+	[v1 권장 문법]
 	<include target="^/common/tpl/refresh.html" />
 
 인클루드할 때 `cond` 속성을 사용하여, 조건이 참일 때만 인클루드하도록 할 수 있습니다.
 
+	[v1 권장 문법]
 	<include target="../filename" cond="$foo" />
 
 XE 1.4.4 미만 버전에서는 아래와 같은 HTML 주석 형태의 인클루드 문법을 사용한 적도 있으나, 더이상 권장하지 않습니다.
@@ -167,17 +170,20 @@ XE 1.4.4 미만 버전에서는 아래와 같은 HTML 주석 형태의 인클루
 - `vars` : SCSS나 LESS에서 사용할 변수 목록 (연관배열 또는 오브젝트)
 
 ```
+[v1 권장 문법]
 <load target="styles.css" />
 <load target="../styles.css" media="print" index="20" />
 ```
 
 SCSS나 LESS도 동일한 문법으로 로딩합니다. 코어에서 자동으로 컴파일합니다.
 
+	[v1 권장 문법]
 	<load target="../styles.less" />
 	<load target="css/styles.scss" vars="$vars" />
 
 XE 1.4.4 미만 버전에서는 아래와 같은 문법도 사용하였으나, 더이상 권장하지 않습니다.
 
+	[v1 초기 문법 (권장하지 않음)]
 	<!--%import("dir1/dir2/styles.css")-->
 
 #### JS
@@ -191,6 +197,7 @@ CSS와 동일한 문법으로 로딩합니다.
 - `index` : 로딩 순서를 지정합니다.
 
 ```
+[v1 권장 문법]
 <load target="script.js" />
 <load target="dir/script.js" type="head" />
 <load target="^/common/js/script.js" type="body" index="10" />
@@ -198,6 +205,7 @@ CSS와 동일한 문법으로 로딩합니다.
 
 XE 1.4.4 미만 버전에서는 아래와 같은 문법도 사용하였으나, 더이상 권장하지 않습니다.
 
+	[v1 초기 문법 (권장하지 않음)]
     <!--%import("../script.js")-->
 
 #### JS 플러그인
@@ -213,25 +221,37 @@ CKEditor, jQuery File Upload 등 `common/js/plugins/` 폴더에 있는 라이브
 두 가지 문법이 존재하며, 백엔드에서 실행되는 룰셋(ruleset)과 마찬가지로
 XML JS 필터 사용은 라이믹스에서 권장하지 않습니다.
 
+	[권장하지 않음]
 	<load target="filters/insert.xml" />
 	<!--%import("filters/insert.xml")-->
 
 #### 언어 파일
 
 특정 모듈, 또는 특정한 폴더에 저장되어 있는 언어 파일을 로딩합니다.
-파일명까지 지정할 수 있는 것처럼 보이지만, `lang.xml`을 입력하더라도 실제로는 폴더명까지만 인식합니다.
+파일명까지 지정할 수 있는 것처럼 보이지만, 실제로는 폴더명까지만 인식합니다.
+라이믹스에서는 `lang.xml` 대신 언어별 `.php` 파일을 사용하므로,
+아래의 두 번째 문법은 실제로 의미가 없습니다.
 
-	<load target="./lang" />
-	<load target="./lang/lang.xml" />
+```
+[v1 권장 문법]
+<load target="./lang" />
+```
+
+```
+[무의미한 문법]
+<load target="./lang/lang.xml" />
+```
 
 #### 언로딩
 
 CSS 또는 JS 파일 로딩을 취소합니다. 로딩할 때 사용했던 것과 동일한 경로를 지정해야 합니다.
 
+	[v1 권장 문법]
 	<unload target="file.js" />
 
 XE 1.4.4 미만 버전에서는 아래와 같은 문법도 사용하였으나, 더이상 권장하지 않습니다.
 
+	[v1 초기 문법 (권장하지 않음)]
 	<!--%unload("file.js")-->
 
 ### PHP 코드 사용
