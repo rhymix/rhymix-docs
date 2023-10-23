@@ -194,8 +194,11 @@ CSS와 동일한 문법으로 로딩합니다.
 <load target="script.js" />
 <load target="dir/script.js" type="head" />
 <load target="^/common/js/script.js" type="body" index="10" />
-<!--%import("../script.js")-->
 ```
+
+XE 1.4.4 미만 버전에서는 아래와 같은 문법도 사용하였으나, 더이상 권장하지 않습니다.
+
+    <!--%import("../script.js")-->
 
 #### JS 플러그인
 
@@ -226,6 +229,9 @@ XML JS 필터 사용은 라이믹스에서 권장하지 않습니다.
 CSS 또는 JS 파일 로딩을 취소합니다. 로딩할 때 사용했던 것과 동일한 경로를 지정해야 합니다.
 
 	<unload target="file.js" />
+
+XE 1.4.4 미만 버전에서는 아래와 같은 문법도 사용하였으나, 더이상 권장하지 않습니다.
+
 	<!--%unload("file.js")-->
 
 ### PHP 코드 사용
