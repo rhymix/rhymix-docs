@@ -275,6 +275,28 @@ Blade에서 도입한 문법으로, if문과 foreach문을 결합한 형태를 �
 @endforelse
 ```
 
+#### 루프 변수
+
+foreach 루프, forelse 루프에서는 Blade와 같은 루프 변수를 지원합니다.
+
+| 변수 속성    | 타입 | 의미 |
+|------------|-----|-----|
+| $loop->index | int | 현재 루프 인덱스 (0부터 시작) |
+| $loop->iteration | int | 현재 반복 횟수 (1부터 시작) |
+| $loop->remaining | int | 남은 횟수 |
+| $loop->count | int | 총 반복 횟수 |
+| $loop->first | bool | 현재 첫 번째 항목인 경우 참 |
+| $loop->last | bool | 현재 마지막 항목인 경우 참 |
+| $loop->even | bool | 현재 짝수번째 항목인 경우 참 |
+| $loop->odd | bool | 현재 홀수번째 항목인 경우 참 |
+| $loop->depth | int | 중첩된 루프문의 깊이 |
+| $loop->parent | object or null | 상위 루프 변수 (최상위 루프는 null) |
+
+foreach문 안에 또다른 foreach문이 있는 경우 `$loop->depth`가 1부터 시작하여 점점 증가하며,
+안쪽 루프 변수의 `$loop->parent`를 통해 바깥쪽 루프 변수에 접근할 수 있습니다.
+이 변수들을 활용하면 복잡한 루프문 안에서 처음, 마지막, n번째, 짝수번째 중의 마지막 등
+다양한 조건을 쉽게 구현할 수 있습니다.
+
 #### 그 밖의 주요 루프문
 
 for문, while문, switch문 등 PHP에서 지원하는 루프문이라면 모두 사용할 수 있고,
