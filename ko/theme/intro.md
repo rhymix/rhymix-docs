@@ -45,7 +45,7 @@ v1 템플릿에서 v2 템플릿을 인클루드하거나, v2에서 v1을 인클�
 
 	[v2 대체 문법 예시] [HTML]
 
-	<!--@if ($comment->isAccessible())-->
+	<!--@if($comment->isAccessible())-->
 		<div class="comment <!--@if($comment->isSecret())-->secret<!--@end-->">
 			{$comment->getContent()}
 		</div>
@@ -68,7 +68,7 @@ v2 문법 정식 공개 후에는 더이상 기능이 추가되지 않을 예정
 
 	<block loop="$comments => $comment">
 		<!--@if($comment->isAccessible())-->
-			<div class="comment"|cond="!$comment->isSecretddddd()" class="comment secret"|cond="$comment->isSecret()">
+			<div class="comment"|cond="!$comment->isSecret()" class="comment secret"|cond="$comment->isSecret()">
 				{$comment->getContent()}
 			</div>
 		<!--@end-->
