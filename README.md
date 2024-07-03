@@ -35,5 +35,6 @@
 - [IP 주소 및 대역 표기 방식](./ko/misc/ipfilter.md)
 - [표준 시간대 처리 방식](./ko/misc/timezone.md)
 - [포토스와이프 연동하기](./ko/misc/photoswipe.md)
+- [모바일 앱 푸시 연동하기](./ko/misc/pushapp.md)
 - [Crontab 설정 방법](./ko/misc/crontab.md)
 - [네모의 꿈 레이아웃 주제 색상](./ko/misc/theme-color.md)
