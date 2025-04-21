@@ -38,3 +38,5 @@
 - [모바일 앱 푸시 연동하기](./ko/misc/pushapp.md)
 - [Crontab 설정 방법](./ko/misc/crontab.md)
 - [네모의 꿈 레이아웃 주제 색상](./ko/misc/theme-color.md)
+
+※ 이 매뉴얼은 CC-BY-SA 4.0 라이선스에 따라 배포됩니다.
