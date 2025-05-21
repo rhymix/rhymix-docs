@@ -15,16 +15,30 @@ cron을 사용할 수 있는 리눅스 서버 환경이라면 정기적으로 �
 
 ### 쉘 스크립트 목록
 
-cron으로 실행할 수 있는 쉘 스크립트들은 `common/scripts` 폴더에 자리잡고 있습니다.
+터미널이나 cron에서 실행할 수 있는 쉘 스크립트들은 각 모듈의 `scripts` 폴더에 있으며,
+라이믹스 설치 경로에서 `php index.php 모듈명.스크립트명 [변수]` 명령으로 실행합니다.
+아래의 설명에서는 `모듈명.스크립트명`을 이름으로 사용합니다.
 
-- `clean_empty_dirs.php`: 첨부파일, 회원정보, 섬네일 폴더 내에 남아 있는 빈 폴더들을 제거합니다.
-- `clean_garbage_files.php`: 파일만 업로드하고 글 작성을 취소하여 남은 파일, 대용량 업로드가 중단되어 남은 파일 등을 제거합니다.
-  문서나 댓글 등에 종속되지 않고 10일 이상 지난 파일을 제거 대상으로 봅니다.
-- `clean_old_logs.php`: 30일 이상 지난 메일 및 SMS 발송 로그, 스팸필터 로그 등을 삭제합니다.
-- `clean_old_notifications.php`: 30일 이상 지난 알림을 삭제합니다.
-- `clean_old_thumbnails.php`: 90일 이상 지난 섬네일을 삭제합니다.
+- `file.cleanEmptyDirs`: 첨부파일, 회원정보, 섬네일 폴더 내에 남아 있는 빈 폴더들을 제거합니다.
+- `file.cleanGarbageFiles`: 파일만 업로드하고 글 작성을 취소하여 남은 파일,
+  대용량 업로드가 중단되어 남은 파일 등을 제거합니다.
+  문서나 댓글 등에 연결되지 않고 10일 이상 지난 파일을 삭제하는 것이 기본값이지만, 변수를 전달하여 변경할 수 있습니다.
+  (일부 서드파티 자료가 파일 업로드 후 정상적으로 연결하지 않고 `isvalid=N` 상태로
+  파일을 방치하는 경우가 있으니 주의하십시오.)
+- `file.cleanThumbnails`: 오래된 섬네일 이미지를 삭제합니다. 기본값은 90일입니다.
   오래된 글의 섬네일도 표시할 필요가 있는 웹진형 게시판을 운영하는 경우에는 사용하지 마시기 바랍니다.
   삭제한 섬네일을 다시 생성하려면 더 많은 서버 자원이 소요됩니다.
+- `module.cleanMiscLogs`: 메일 및 SMS 발송 로그, 푸시 발송 로그, 스팸필터 로그 등
+  여러 모듈에서 생성하는 잡다한 로그를 일괄 삭제합니다. 기본값은 30일입니다.
+- `ncenterlite.cleanNotifications`: 오래된 알림을 삭제합니다.
+
+### 수동 실행 예제
+
+예를 들어 60일 이상 지난 알림을 삭제하는 명령은 아래와 같습니다.
+
+```
+php index.php ncenterlite.cleanNotifications 60
+```
 
 ### crontab 설정 예제
 
@@ -34,10 +48,11 @@ cron으로 실행할 수 있는 쉘 스크립트들은 `common/scripts` 폴더�
 아래의 예제는 매일 새벽 5시 5~20분 사이에 4개의 스크립트를 모두 실행합니다.
 빈 폴더를 제거하는 스크립트를 맨 마지막에 실행하면 효과적입니다.
 
-    05 05 * * * php /라이믹스/설치경로/common/scripts/clean_garbage_files.php >> /라이믹스/설치경로/files/cron.log 2>&1
-    10 05 * * * php /라이믹스/설치경로/common/scripts/clean_old_notifications.php >> /라이믹스/설치경로/files/cron.log 2>&1
-    15 05 * * * php /라이믹스/설치경로/common/scripts/clean_old_thumbnails.php >> /라이믹스/설치경로/files/cron.log 2>&1
-    20 05 * * * php /라이믹스/설치경로/common/scripts/clean_empty_dirs.php >> /라이믹스/설치경로/files/cron.log 2>&1
+    05 05 * * * php /라이믹스/설치경로/index.php file.cleanGarbageFiles >> /라이믹스/설치경로/files/cron.log 2>&1
+    10 05 * * * php /라이믹스/설치경로/index.php file.cleanThumbnails >> /라이믹스/설치경로/files/cron.log 2>&1
+    15 05 * * * php /라이믹스/설치경로/index.php module.cleanMiscLogs >> /라이믹스/설치경로/files/cron.log 2>&1
+    15 05 * * * php /라이믹스/설치경로/index.php ncenterlite.cleanNotifications >> /라이믹스/설치경로/files/cron.log 2>&1
+    20 05 * * * php /라이믹스/설치경로/index.php file.cleanEmptyDirs >> /라이믹스/설치경로/files/cron.log 2>&1
 
 ### 주의사항
 
