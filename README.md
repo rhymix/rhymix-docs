@@ -30,6 +30,11 @@
 - [템플릿 문법 v2](./ko/theme/template_v2.md)
 - [템플릿 문법 v1](./ko/theme/template_v1.md)
 
+### 클래스 및 함수 명세
+
+- [라이믹스 프레임워크](./ko/reference/framework.md)
+- [프론트엔드 라이브러리](./ko/reference/frontend.md)
+
 ### 기타 정보
 
 - [IP 주소 및 대역 표기 방식](./ko/misc/ipfilter.md)
