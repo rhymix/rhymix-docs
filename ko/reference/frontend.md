@@ -406,6 +406,6 @@ XML 필터 등에서 사용하는 소문자 `xe` 전역 변수와는 다르니 �
 
 ### 기타 함수
 
-- [전역 함수](./frontend/global_functions.md)
-- [레거시 전역 함수](./frontend/legacy_functions.md)
-- [String 확장](./frontend/string_extensions.md)
+- [전역 함수](frontend/global_functions.md)
+- [레거시 전역 함수](frontend/legacy_functions.md)
+- [String 확장](frontend/string_extensions.md)
