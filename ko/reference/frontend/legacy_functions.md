@@ -14,15 +14,11 @@
 function doAddDocumentCart(obj)
 ```
 
----
-
 #### doDocumentPreview()
 
 ```
 function doDocumentPreview(obj)
 ```
-
----
 
 #### doDocumentSave()
 
@@ -30,15 +26,11 @@ function doDocumentPreview(obj)
 function doDocumentSave(obj)
 ```
 
----
-
 #### doDocumentLoad()
 
 ```
 function doDocumentLoad(obj)
 ```
-
----
 
 #### doDocumentSelect()
 
@@ -57,8 +49,6 @@ function doCallModuleAction(module, action, target_srl)
 
 `Rhymix.ajax()`를 사용하세요.
 
----
-
 #### exec_xml()
 
 ```
@@ -66,8 +56,6 @@ exec_xml(module, act, params, callback_success, return_fields, callback_success_
 ```
 
 `Rhymix.ajax()`를 사용하세요.
-
----
 
 #### exec_json()
 
@@ -77,8 +65,6 @@ exec_json(action, params, callback_success, callback_error)
 
 `Rhymix.ajax()`를 사용하세요.
 
----
-
 #### exec_html()
 
 ```
@@ -87,9 +73,6 @@ exec_html()
 
 `Rhymix.ajax()`를 사용하세요.
 
-
----
-
 #### send_by_form()
 
 ```
@@ -97,8 +80,6 @@ send_by_form(url, params)
 ```
 
 `Rhymix.ajax()`를 사용하세요.
-
----
 
 #### arr2obj()
 
@@ -116,8 +97,6 @@ function getCookie(name)
 ```
 
 라이믹스에서 제공하는 js-cookie 라이브러리를 사용하세요.
-
----
 
 #### setCookie()
 
@@ -138,15 +117,11 @@ function doChangeLangType(obj)
 
 `Rhymix.setLangType()`을 사용하세요.
 
----
-
 #### rhymix_alert_close()
 
 ```
 function rhymix_alert_close()
 ```
-
----
 
 #### rhymix_alert()
 
@@ -160,15 +135,11 @@ function rhymix_alert(message, redirect_url, delay)
 function move_url(url, open_window)
 ```
 
----
-
 #### setFixedPopupSize()
 
 ```
 function setFixedPopupSize()
 ```
-
----
 
 #### displayMultimedia()
 
@@ -176,15 +147,11 @@ function setFixedPopupSize()
 function displayMultimedia(src, width, height, options)
 ```
 
----
-
 #### transRGB2Hex()
 
 ```
 function transRGB2Hex(value)
 ```
-
----
 
 #### sendMailTo()
 
@@ -192,15 +159,11 @@ function transRGB2Hex(value)
 function sendMailTo(email_address)
 ```
 
----
-
 #### viewSkinInfo()
 
 ```
 function viewSkinInfo(module, skin)
 ```
-
----
 
 #### xSleep()
 
@@ -208,15 +171,11 @@ function viewSkinInfo(module, skin)
 function xSleep(sec)
 ```
 
----
-
 #### isDef()
 
 ```
 function isDef()
 ```
-
----
 
 #### is_def()
 
@@ -224,15 +183,11 @@ function isDef()
 function is_def(v)
 ```
 
----
-
 #### ucfirst()
 
 ```
 function ucfirst(str)
 ```
-
----
 
 #### get_by_id()
 
@@ -240,15 +195,11 @@ function ucfirst(str)
 function get_by_id(id)
 ```
 
----
-
 #### GetObjLeft()
 
 ```
 function GetObjLeft(obj)
 ```
-
----
 
 #### GetObjTop()
 
@@ -256,15 +207,11 @@ function GetObjLeft(obj)
 function GetObjTop(obj)
 ```
 
----
-
 #### getOuterHTML()
 
 ```
 function getOuterHTML(obj)
 ```
-
----
 
 #### replaceOuterHTML()
 
@@ -272,15 +219,11 @@ function getOuterHTML(obj)
 function replaceOuterHTML(obj, html)
 ```
 
----
-
 #### toggleDisplay()
 
 ```
 function toggleDisplay(id)
 ```
-
----
 
 #### toggleSecuritySignIn()
 
@@ -288,15 +231,11 @@ function toggleDisplay(id)
 function toggleSecuritySignIn()
 ```
 
----
-
 #### completeMessage()
 
 ```
 function completeMessage(ret_obj)
 ```
-
----
 
 #### reloadDocument()
 
@@ -304,15 +243,11 @@ function completeMessage(ret_obj)
 function reloadDocument()
 ```
 
----
-
 #### open_calendar()
 
 ```
 function open_calendar(fo_id, day_str, callback_func)
 ```
-
----
 
 #### displayPopupMenu()
 
@@ -320,15 +255,11 @@ function open_calendar(fo_id, day_str, callback_func)
 function displayPopupMenu(ret_obj, response_tags, params)
 ```
 
----
-
 #### createPopupMenu()
 
 ```
 function createPopupMenu()
 ```
-
----
 
 #### chkPopupMenu()
 
@@ -336,15 +267,11 @@ function createPopupMenu()
 function chkPopupMenu()
 ```
 
----
-
 #### Base64.encode()
 
 ```
 Base64.encode(input)
 ```
-
----
 
 #### Base64.decode()
 
@@ -360,6 +287,7 @@ Base64.decode(input)
 - modernizr
 - x.js
 - xml2json
+
 
 ### 프론트엔드 XE App
 

@@ -4,6 +4,7 @@
 이 문서는 라이믹스에서 기본 제공하는 프론트엔드(JavaScript) 라이브러리와 함수들을 소개합니다.
 아래의 라이브러리와 함수들은 라이믹스로 제작한 페이지라면 어디에서나 별도의 import 과정 없이 사용할 수 있습니다.
 
+
 ### 공용 라이브러리
 
 아래의 라이브러리들은 코어에서 관리하므로 다른 버전을 중복으로 로딩하지 않도록 주의하시기 바랍니다.
@@ -15,6 +16,7 @@
   - `Cookies` 전역변수 또는 `Rhymix.cookie` 속성으로 참조할 수 있습니다.
 - URI.js
   - `URI` 전역변수 또는 `Rhymix.URI` 속성으로 참조할 수 있습니다.
+
 
 ### Rhymix 오브젝트
 
@@ -32,8 +34,6 @@ Rhymix.isMobile(): bool
 
 현재 접속한 환경이 모바일 기기인 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
 
----
-
 #### Rhymix.getColorScheme()
 
 ```
@@ -41,8 +41,6 @@ Rhymix.getColorScheme(): string
 ```
 
 현재 다크모드가 선택되어 있는 경우 `'dark'`, 그렇지 않으면 `'light'`를 반환합니다.
-
----
 
 #### Rhymix.setColorScheme()
 
@@ -54,8 +52,6 @@ Rhymix.setColorScheme(color_scheme: string): void
 라이믹스 기준을 따르는 레이아웃과 스킨이라면 즉시 변경되나,
 에디터 등 일부 요소는 새로고침 후에 반영될 수도 있습니다.
 
----
-
 #### Rhymix.detectColorScheme()
 
 ```
@@ -65,8 +61,6 @@ Rhymix.detectColorScheme(): void
 색상 모드를 자동으로 감지하여 적용합니다.
 이 함수는 페이지 로딩시 자동으로 호출됩니다.
 
----
-
 #### Rhymix.getLangType()
 
 ```
@@ -74,8 +68,6 @@ Rhymix.getLangType(): string
 ```
 
 현재 사용중인 언어를 반환합니다. 예) 한국어 `'ko'`
-
----
 
 #### Rhymix.setLangType()
 
@@ -86,8 +78,6 @@ Rhymix.setLangType(lang_type: string): void
 언어를 변경합니다. 즉시 반영되지는 않을 수도 있습니다.
 언어 변경 후 새로고침을 원하시면 `location.reload()`를 사용하세요.
 
----
-
 #### Rhymix.getCSRFToken()
 
 ```
@@ -96,8 +86,6 @@ Rhymix.getCSRFToken(): string
 
 현재 사용중인 CSRF 토큰값을 반환합니다.
 
----
-
 #### Rhymix.setCSRFToken()
 
 ```
@@ -105,8 +93,6 @@ Rhymix.setCSRFToken(token: string): void
 ```
 
 CSRF 토큰값을 특정한 문자열로 변경합니다.
-
----
 
 #### Rhymix.getRewriteLevel()
 
@@ -120,8 +106,6 @@ Rhymix.getRewriteLevel(): int
 - 1: XE와 호환되는 형태만 사용
 - 2: 모든 형태 사용
 
----
-
 #### Rhymix.getBaseUrl()
 
 ```
@@ -132,8 +116,6 @@ Rhymix.getBaseUrl(): string
 서버단의 `RX_BASEURL`에 해당하며, 대부분의 사이트에서는 `/`이지만,
 하위 폴더에 설치한 경우 `/rhymix/`와 같은 형태로 나올 수도 있습니다.
 
----
-
 #### Rhymix.getDefaultUrl()
 
 ```
@@ -141,8 +123,6 @@ Rhymix.getDefaultUrl(): string
 ```
 
 현재 사이트의 전체 주소를 반환합니다.
-
----
 
 #### Rhymix.getCurrentUrl()
 
@@ -153,8 +133,6 @@ Rhymix.getCurrentUrl(): string
 현재 페이지의 전체 주소를 반환합니다.
 짧은주소를 적용하지 않고 모든 파라미터를 풀어놓은 형태로 제공됩니다.
 
----
-
 #### Rhymix.getCurrentUrlPrefix()
 
 ```
@@ -163,8 +141,6 @@ Rhymix.getCurrentUrlPrefix(): string
 
 현재 페이지의 `mid` 값을 반환합니다.
 빈 값일 수도 있습니다.
-
----
 
 #### Rhymix.isCurrentUrl()
 
@@ -176,8 +152,6 @@ Rhymix.isCurrentUrl(url: string): bool
 상대경로도 정확하게 인식하며, URL 뒤에 붙은 `#hash` 부분은 제외하고 비교하는 등,
 단순히 문자열을 비교하는 것보다 편리한 기능을 제공합니다.
 
----
-
 #### Rhymix.isSameOrigin()
 
 ```
@@ -186,8 +160,6 @@ Rhymix.isSameOrigin(url1: string, url2: string): bool
 
 두 URL이 동일한 origin에 소속되어 있는 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
 origin을 기준으로 판단하므로 `Rhymix.isSameHost()`보다 엄격합니다.
-
----
 
 #### Rhymix.isSameHost()
 
@@ -201,8 +173,6 @@ Rhymix.isSameHost(url: string): bool
 동일한 사이트의 내부 URL인지 판단하는 용도로 활용할 수 있습니다.
 (권장하지는 않습니다. XE에서 사용하던 레거시 함수입니다.)
 
----
-
 #### Rhymix.redirectToUrl()
 
 ```
@@ -212,8 +182,6 @@ Rhymix.redirectToUrl(url: string): void
 주어진 URL로 페이지를 전환합니다.
 단, `Rhymix.isCurrentUrl()`의 기준으로 현재 페이지와 동일한 URL인 것으로 판단하는 경우,
 페이지 전환 대신 새로고침합니다.
-
----
 
 #### Rhymix.openWindow()
 
@@ -228,8 +196,6 @@ Rhymix.openWindow(
 새 창을 열고, 새 창에 포커스를 줍니다. XE 1.x의 `winopen()`과 호환됩니다.
 `window.open()`과 동일하나, reverse tabnabbing 공격에 대한 방어 수단이 추가되었습니다.
 
----
-
 #### Rhymix.openPopup()
 
 ```
@@ -241,8 +207,6 @@ Rhymix.openPopup(
 
 정해진 규격의 팝업창을 엽니다. XE 1.x의 `popopen()`과 호환됩니다.
 
----
-
 #### Rhymix.modal.open()
 
 ```
@@ -252,8 +216,6 @@ Rhymix.modal.open(id: string): void
 `id`라는 id를 가진 요소를 모달창으로 엽니다.
 이 요소는 `active`라는 클래스를 추가했을 때 화면에 표시되어야 합니다.
 이 방법으로 열린 모달창은 뒤로가기를 누르면 닫힙니다.
-
----
 
 #### Rhymix.modal.openIframe()
 
@@ -268,8 +230,6 @@ Rhymix.modal.openIframe(
 웹뷰앱처럼 실제 팝업창을 열기 어려운 환경에서 손쉽게 팝업창을 대체할 수 있습니다.
 뒤로가기를 누르면 iframe이 닫힙니다.
 
----
-
 #### Rhymix.modal.close()
 
 ```
@@ -278,8 +238,6 @@ Rhymix.modal.close(id: string): void
 
 위의 방법으로 연 모달창을 닫으려면 이 함수를 호출하여야 합니다.
 히스토리 처리를 위해 필요하며, iframe인 경우 `id`는 필요하지 않습니다.
-
----
 
 #### Rhymix.ajax()
 
@@ -320,8 +278,6 @@ Rhymix.ajax(
 - 에러 발생시 나타나던 `AJAX communication error` 에러 메시지가 `AJAX error`로 단순화되었고,
   디버깅에 도움을 줄 수 있는 경로 정보를 조금 더 자세히 표시합니다.
 
----
-
 #### Rhymix.ajaxForm()
 
 ```
@@ -338,8 +294,6 @@ Rhymix.ajaxForm(
 `<form>` 태그에 `rx_ajax` 클래스를 추가하면 `submit` 이벤트 발생시 자동으로 이 함수를 거치게 되므로,
 페이지 전환 (새로고침) 없는 폼 제출 및 에러 처리를 쉽게 구현할 수 있습니다.
 
----
-
 #### Rhymix.checkboxToggleAll()
 
 ```
@@ -347,8 +301,6 @@ Rhymix.checkboxToggleAll(name: string): void
 ```
 
 XE 1.x에서 사용하던 `XE.checkboxToggleAll()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
-
----
 
 #### Rhymix.displayPopupMenu()
 
@@ -362,8 +314,6 @@ Rhymix.displayPopupMenu(
 
 XE 1.x에서 사용하던 `XE.displayPopupMenu()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
 
----
-
 #### Rhymix.filesizeFormat()
 
 ```
@@ -372,8 +322,6 @@ Rhymix.filesizeFormat(size: int): string
 
 파일 크기를 보기 쉽게 표현합니다.
 백엔드에서 사용하는 `FileHandler::filesize()` 매소드와 같은 역할입니다.
-
----
 
 #### Rhymix.lang()
 
@@ -396,6 +344,7 @@ Rhymix.lang(
 기존 방식대로 `xe.lang.key = val;` 이라고 쓰는 것도 동일한 효과입니다.
 (`xe.lang` 변수는 `Rhymix` 오브젝트 내부의 자료 구조로 맵핑되어 있습니다.)
 
+
 ### XE 전역 변수
 
 구 버전에 존재하던 `XE` 전역 변수는 라이믹스 2.1.24부터 `Rhymix` 오브젝트에 대한 alias입니다.
@@ -403,6 +352,7 @@ Rhymix.lang(
 예를 들어 `XE.ajax()`를 호출하면 `Rhymix.ajax()`를 호출하는 것과 같습니다.
 
 XML 필터 등에서 사용하는 소문자 `xe` 전역 변수와는 다르니 주의하세요.
+
 
 ### 기타 함수
 
