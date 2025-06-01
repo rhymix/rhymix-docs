@@ -110,11 +110,11 @@
 
 ### 레거시 클래스
 
-[레거시 클래스](./framework/legacy.md)
+[레거시 클래스](framework/legacy.md)
 
 ### 전역 함수
 
-[전역 함수](./framework/functions.md)
+[전역 함수](framework/functions.md)
 
 ### 공통 상수
 
