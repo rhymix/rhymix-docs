@@ -27,7 +27,12 @@
 ### 클래스 및 함수 명세
 
 - [라이믹스 프레임워크](./ko/reference/framework.md)
+  - [레거시 클래스](./ko/reference/framework/legacy.md)
+  - [전역 함수](./ko/reference/framework/functions.md)
 - [프론트엔드 라이브러리](./ko/reference/frontend.md)
+  - [전역 함수](./ko/reference/frontend/global_functions.md)
+  - [레거시 전역 함수](./ko/reference/frontend/legacy_functions.md)
+  - [String 확장](./ko/reference/frontend/string_extensions.md)
 
 ### 코어 개발 참여
 
