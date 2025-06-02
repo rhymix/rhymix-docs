@@ -16,13 +16,11 @@
 
 | 클래스                | 설명                                                                       |
 |----------------------|---------------------------------------------------------------------------|
-| BaseObject           | 모듈, DB 쿼리, 이벤트 핸들러 등의 반환값을 담는 데 사용                            |
-| Context              | 요청에 대한 전반적인 환경 관리, 전역변수 관리, 응답 작성을 위한 다양한 메소드 제공       |
-| FrontEndFileHandler  | HTML 응답에 사용할 CSS, JS 리소스 관리                                        |
-| ModuleHandler        | 모듈 라이프사이클 관리                                                        |
-| ModuleObject         | 모든 모듈 클래스의 기초가 되는 클래스                                            |
-
-(자세한 정보 추가 예정)
+| [BaseObject](legacy/BaseObject.md) | 모듈, DB 쿼리, 이벤트 핸들러 등의 반환값을 담는 데 사용
+| [Context](legacy/Context.md) | 요청에 대한 전반적인 환경 관리, 전역변수 관리, 응답 작성을 위한 다양한 메소드 제공
+| [FrontEndFileHandler](legacy/FrontEndFileHandler.md) | HTML 응답에 사용할 CSS, JS 리소스 관리
+| [ModuleHandler](legacy/ModuleHandler.md) | 모듈 라이프사이클 관리
+| [ModuleObject](legacy/ModuleObject.md) | 모든 모듈 클래스의 기초가 되는 클래스
 
 ### 대체 예정인 레거시 클래스
 
@@ -31,16 +29,16 @@
 
 | 클래스                | 설명                                                                       |
 |----------------------|---------------------------------------------------------------------------|
-| DisplayHandler       | 응답 렌더링                                                                 |
-| - HTMLDisplayHandler | HTML 응답 렌더링                                                            |
-| - JSONDisplayHandler | JSON 응답 렌더링                                                            |
-| - RawDisplayHandler  | 형식이 정해지지 않은 응답 렌더링                                                |
-| - XMLDisplayHandler  | XML 응답 렌더링                                                             |
-| FileHandler          | `Rhymix\Framework\Storage`로 대부분 대체 가능하나, 일부 기능 유지중              |
-| Mobile               | `Rhymix\Framework\UA`로 대부분 대체 가능하나, 일부 기능 유지중                   |
-| PageHandler          | DB 쿼리 결과 중 페이지네이션 표현에 사용                                         |
-| Validator            | XE 1.x 방식의 XML 룰셋 적용 (백엔드 검증)                                      |
-| XmlJsFilter          | XE 1.x 방식의 XML 필터 적용 (프론트엔드 검증)                                   |
+| [DisplayHandler](legacy/DisplayHandler.md) | 응답 렌더링
+| - HTMLDisplayHandler | HTML 응답 렌더링
+| - JSONDisplayHandler | JSON 응답 렌더링
+| - RawDisplayHandler | 형식이 정해지지 않은 응답 렌더링
+| - XMLDisplayHandler | XML 응답 렌더링
+| [FileHandler](legacy/FileHandler.md) | `Rhymix\Framework\Storage`로 대부분 대체 가능하나, 일부 기능 유지중
+| [Mobile](legacy/Mobile.md) | `Rhymix\Framework\UA`로 대부분 대체 가능하나, 일부 기능 유지중
+| PageHandler | DB 쿼리 결과 중 페이지네이션 표현에 사용
+| Validator | XE 1.x 방식의 XML 룰셋 적용 (백엔드 검증)
+| XmlJsFilter | XE 1.x 방식의 XML 필터 적용 (프론트엔드 검증)
 
 ### 대체 완료된 레거시 클래스
 
@@ -50,24 +48,24 @@
 
 | 클래스                | 설명                                                                       |
 |----------------------|---------------------------------------------------------------------------|
-| CacheHandler         | `Rhymix\Framework\Cache`                                                  |
-| DB                   | `Rhymix\Framework\DB`                                                     |
-| EditorHandler        | 미사용                                                                     |
-| EmbedFilter          | `Rhymix\Framework\Filters\MediaFilter`                                    |
-| FileObject           | 미사용                                                                     |
-| GeneralXmlParser     | 미사용                                                                     |
-| Handler              | 미사용                                                                     |
-| IpFilter             | `Rhymix\Framework\Filters\IpFilter`                                       |
-| JSCallbackDisplayHandler | 미사용                                                                 |
-| Mail                 | `Rhymix\Framework\Mail`                                                   |
-| Password             | `Rhymix\Framework\Password`                                               |
-| Purifier             | `Rhymix\Framework\Filters\HTMLFilter`                                     |
-| Security             | `Rhymix\Framework\Security`                                               |
-| TemplateHandler      | `Rhymix\Framework\Template`                                               |
-| UploadFileFilter     | `Rhymix\Framework\Filters\FileContentFilter`                              |
-| VirtualXMLDisplayHandler | 미사용                                                                 |
-| WidgetHandler        | 미사용                                                                     |
-| XEHttpRequest        | 미사용                                                                     |
-| XeXmlParser          | 미사용                                                                     |
-| XmlGenerator         | 미사용                                                                     |
-| XmlLangParser        | `Rhymix\Framework\Parsers\LangParser`                                     |
+| CacheHandler         | `Rhymix\Framework\Cache`
+| DB                   | `Rhymix\Framework\DB`
+| EditorHandler        | 미사용
+| EmbedFilter          | `Rhymix\Framework\Filters\MediaFilter`
+| FileObject           | 미사용
+| GeneralXmlParser     | 미사용
+| Handler              | 미사용
+| IpFilter             | `Rhymix\Framework\Filters\IpFilter`
+| JSCallbackDisplayHandler | 미사용
+| Mail                 | `Rhymix\Framework\Mail`
+| Password             | `Rhymix\Framework\Password`
+| Purifier             | `Rhymix\Framework\Filters\HTMLFilter`
+| Security             | `Rhymix\Framework\Security`
+| TemplateHandler      | `Rhymix\Framework\Template`
+| UploadFileFilter     | `Rhymix\Framework\Filters\FileContentFilter`
+| VirtualXMLDisplayHandler | 미사용
+| WidgetHandler        | 미사용
+| XEHttpRequest        | 미사용
+| XeXmlParser          | 미사용
+| XmlGenerator         | 미사용
+| XmlLangParser        | `Rhymix\Framework\Parsers\LangParser`
