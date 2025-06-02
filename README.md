@@ -12,12 +12,6 @@
 - [nginx 설정 방법](./ko/introduction/nginx.md)
 - [도메인 변경](./ko/introduction/domain-change.md)
 
-### 코어 개발 참여
-
-- [GitHub 이슈 및 PR 작성](./ko/contrib/github.md)
-- [코딩 규칙](./ko/contrib/coding-standards.md)
-- [GPL: 개발자, 디자이너, 사용자의 권리와 의무](./ko/contrib/license.md)
-
 ### 확장 기능 제작
 
 - [개요](./ko/plugin/intro.md)
@@ -34,6 +28,12 @@
 
 - [라이믹스 프레임워크](./ko/reference/framework.md)
 - [프론트엔드 라이브러리](./ko/reference/frontend.md)
+
+### 코어 개발 참여
+
+- [GitHub 이슈 및 PR 작성](./ko/contrib/github.md)
+- [코딩 규칙](./ko/contrib/coding-standards.md)
+- [GPL: 개발자, 디자이너, 사용자의 권리와 의무](./ko/contrib/license.md)
 
 ### 기타 정보
 
