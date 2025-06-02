@@ -21,10 +21,16 @@
 ### Rhymix 오브젝트
 
 `Rhymix` 오브젝트는 XE 1.x에서 `XE` 전역변수가 갖던 역할을 물려받습니다.
+
 대부분의 메소드는 현재 접속 환경과 라이믹스 설정 상태에 대한 정확한 정보를 제공하는 것이 목적으로,
 매우 간단한 구조를 띠고 있습니다.
-반면, `Rhymix.ajax()`처럼 서버-클라이언트간 통신 표준을 제시하기 위한 함수도 있고,
-레이어 팝업을 통제하는 등 일반적으로 많이 활용할 수 있는 편의 기능도 제공합니다.
+
+AJAX 및 모달창 관련 메소드는 라이믹스 2.1.24부터 새로 추가된 기능으로,
+앞으로 이와 같은 메소드들이 점진적으로 더 추가될 예정입니다.
+
+아래의 설명에서는 파라미터와 반환값의 타입을 명시하기 위한 목적으로 일부 TypeScript 문법을 사용하였으나,
+실제 코드는 바닐라 JavaScript와 jQuery를 활용하여 작성되어 있으며,
+라이믹스에서 프론트엔드 코드 작성시 TypeScript를 사용할 필요는 없습니다.
 
 #### Rhymix.isMobile()
 
@@ -300,7 +306,10 @@ Rhymix.ajaxForm(
 Rhymix.checkboxToggleAll(name: string): void
 ```
 
-XE 1.x에서 사용하던 `XE.checkboxToggleAll()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
+`XE.checkboxToggleAll()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
+주어진 이름을 가진 체크박스를 모두 선택하거나 해제합니다.
+게시판에서 문서 관리에 내부적으로 사용합니다.
+그 밖의 코드에서 직접 호출하는 것은 권장하지 않습니다.
 
 #### Rhymix.displayPopupMenu()
 
@@ -312,7 +321,9 @@ Rhymix.displayPopupMenu(
 ): void
 ```
 
-XE 1.x에서 사용하던 `XE.displayPopupMenu()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
+`XE.displayPopupMenu()` 함수를 `Rhymix` 오브젝트로 옮겨온 것입니다.
+회원, 문서, 댓글 등의 팝업 레이어를 표시하는 데 내부적으로 사용합니다.
+그 밖의 코드에서 직접 호출하는 것은 권장하지 않습니다.
 
 #### Rhymix.filesizeFormat()
 
@@ -349,7 +360,7 @@ Rhymix.lang(
 
 구 버전에 존재하던 `XE` 전역 변수는 라이믹스 2.1.24부터 `Rhymix` 오브젝트에 대한 alias입니다.
 
-예를 들어 `XE.ajax()`를 호출하면 `Rhymix.ajax()`를 호출하는 것과 같습니다.
+예를 들어 `XE.filesizeFormat()`를 호출하면 `Rhymix.filesizeFormat()`를 호출하는 것과 같습니다.
 
 XML 필터 등에서 사용하는 소문자 `xe` 전역 변수와는 다르니 주의하세요.
 
