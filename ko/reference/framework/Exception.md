@@ -1,0 +1,2 @@
+Rhymix\Framework\Exception
+--------------------------
