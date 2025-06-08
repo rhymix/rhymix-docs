@@ -35,7 +35,7 @@ AJAX 및 모달창 관련 메소드는 라이믹스 2.1.24부터 새로 추가�
 #### Rhymix.isMobile()
 
 ```
-Rhymix.isMobile(): bool
+Rhymix.isMobile(): boolean
 ```
 
 현재 접속한 환경이 모바일 기기인 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
@@ -43,7 +43,7 @@ Rhymix.isMobile(): bool
 #### Rhymix.getColorScheme()
 
 ```
-Rhymix.getColorScheme(): string
+Rhymix.getColorScheme(): 'light' | 'dark'
 ```
 
 현재 다크모드가 선택되어 있는 경우 `'dark'`, 그렇지 않으면 `'light'`를 반환합니다.
@@ -51,7 +51,7 @@ Rhymix.getColorScheme(): string
 #### Rhymix.setColorScheme()
 
 ```
-Rhymix.setColorScheme(color_scheme: string): void
+Rhymix.setColorScheme(color_scheme: 'light' | 'dark'): void
 ```
 
 색상 모드를 변경합니다. `'light'` 또는 `'dark'`를 넘길 수 있습니다.
@@ -103,7 +103,7 @@ CSRF 토큰값을 특정한 문자열로 변경합니다.
 #### Rhymix.getRewriteLevel()
 
 ```
-Rhymix.getRewriteLevel(): int
+Rhymix.getRewriteLevel(): 0 | 1 | 2
 ```
 
 관리자가 설정한 짧은주소 레벨을 반환합니다.
@@ -151,7 +151,7 @@ Rhymix.getCurrentUrlPrefix(): string
 #### Rhymix.isCurrentUrl()
 
 ```
-Rhymix.isCurrentUrl(url: string): bool
+Rhymix.isCurrentUrl(url: string): boolean
 ```
 
 주어진 URL이 현재 페이지 주소와 동일한 것으로 판단될 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
@@ -161,7 +161,7 @@ Rhymix.isCurrentUrl(url: string): bool
 #### Rhymix.isSameOrigin()
 
 ```
-Rhymix.isSameOrigin(url1: string, url2: string): bool
+Rhymix.isSameOrigin(url1: string, url2: string): boolean
 ```
 
 두 URL이 동일한 origin에 소속되어 있는 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
@@ -170,7 +170,7 @@ origin을 기준으로 판단하므로 `Rhymix.isSameHost()`보다 엄격합니�
 #### Rhymix.isSameHost()
 
 ```
-Rhymix.isSameHost(url: string): bool
+Rhymix.isSameHost(url: string): boolean
 ```
 
 두 URL의 도메인이 동일한 경우 `true`, 그렇지 않으면 `false`를 반환합니다.
@@ -251,8 +251,8 @@ Rhymix.modal.close(id: string): void
 Rhymix.ajax(
 	action: string | null,
 	params: {} | FormData,
-	success?: Function,
-	error?: Function
+	success?: (data?: {}, xhr?: jqXHR): void,
+	error?: (data?: {}, xhr?: jqXHR): void,
 ): void
 ```
 
@@ -288,9 +288,9 @@ Rhymix.ajax(
 
 ```
 Rhymix.ajaxForm(
-	form: HTMLElement,
-	success?: Function,
-	error?: Function
+	form: HTMLFormElement,
+	success?: (data?: {}, xhr?: jqXHR): void,
+	error?: (data?: {}, xhr?: jqXHR): void,
 ): void
 ```
 
