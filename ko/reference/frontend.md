@@ -182,12 +182,34 @@ Rhymix.isSameHost(url: string): boolean
 #### Rhymix.redirectToUrl()
 
 ```
-Rhymix.redirectToUrl(url: string): void
+Rhymix.redirectToUrl(url: string, delay?: int): void
 ```
 
 주어진 URL로 페이지를 전환합니다.
 단, `Rhymix.isCurrentUrl()`의 기준으로 현재 페이지와 동일한 URL인 것으로 판단하는 경우,
 페이지 전환 대신 새로고침합니다.
+
+동일한 URL일 가능성이 있는 경우, `location.href`를 직접 조작하는 것보다 이 함수가 편리할 수 있습니다.
+이 때 `location.href`를 직접 조작하면 새로고침 대신 스크롤이 발생하기 때문입니다.
+
+라이믹스 2.1.25부터 `delay` 파라미터를 사용하여, 해당 시간(밀리초) 후에 페이지가 전환되도록 예약할 수 있습니다.
+예약된 페이지 전환을 취소하려면 `Rhymix.cancelPendingRedirect()` 함수를 사용합니다.
+
+2개 이상의 서로 다른 페이지 전환을 예약한 경우의 동작은 코어에서 보장하지 않습니다.
+
+#### Rhymix.cancelPendingRedirect()
+
+```
+Rhymix.cancelPendingRedirect(): boolean
+```
+
+예약된 페이지 전환을 취소합니다.
+
+예약된 페이지 전환이 있는 경우 `true`를 반환하고, 없는 경우 `false`를 반환합니다.
+
+2개 이상의 서로 다른 페이지 전환을 예약한 경우의 동작은 코어에서 보장하지 않습니다.
+
+라이믹스 2.1.25부터 지원합니다.
 
 #### Rhymix.openWindow()
 
@@ -251,9 +273,9 @@ Rhymix.modal.close(id: string): void
 Rhymix.ajax(
 	action: string | null,
 	params: {} | FormData,
-	success?: (data?: {}, xhr?: jqXHR): void,
-	error?: (data?: {}, xhr?: jqXHR): void,
-): void
+	callback_success?: (data?: {}, xhr?: jqXHR): void,
+	callback_error?: (data?: {}, xhr?: jqXHR): void,
+): Promise
 ```
 
 특정 모듈의 act에 AJAX POST 요청을 하기 위한 표준 함수입니다.
@@ -265,12 +287,11 @@ Rhymix.ajax(
 - `params`는 딕셔너리로 작성합니다. 예) `{ target_srl: document_srl }`
   - 폼에서 추출한 데이터이거나, 파일 업로드를 포함하는 경우 `FormData` 오브젝트를 넘길 수 있습니다.
     이 때 `action`은 `null`이어야 하며, `module`과 `act`는 `FormData`에서 추출하여 사용하게 됩니다.
-- `success`는 요청 성공시 호출할 콜백 함수입니다.
+- `callback_success`는 요청 성공시 호출할 콜백 함수입니다.
   - 2개의 파라미터를 가질 수 있습니다. `data`는 반환된 데이터, `xhr`은 `jqXHR` 오브젝트를 받습니다.
-- `error`는 요청 실패시 호출할 콜백 함수입니다.
+- `callback_error`는 요청 실패시 호출할 콜백 함수입니다.
   - 2개의 파라미터를 가질 수 있습니다. `data`는 반환된 데이터, `xhr`은 `jqXHR` 오브젝트를 받습니다.
-  - 에러 콜백 함수가 `false`를 반환하지 않으면 에러 메시지 표시, 콘솔 로그 등이 그대로 진행됩니다.
-    따라서 에러 메시지 표시를 막고 싶다면 `false`를 반환하여야 합니다.
+  - 
   - 통신 오류뿐 아니라 라이믹스 모듈이나 애드온 등이 반환한 오류도 에러 콜백 함수로 전달됩니다.
 
 기존의 `exec_xml()`, `exec_json()` 함수와 다른 점은 아래와 같습니다.
@@ -279,18 +300,87 @@ Rhymix.ajax(
 - 모든 응답은 JSON 형태로 받습니다.
 - 403, 404, 500 등 HTTP 상태 코드와 관계없이, response body가 정상적인 JSON 형태를 띠고 있다면
   해당 JSON에 담긴 상태값 및 에러 메시지에 따라 성공 또는 실패 여부를 판단합니다.
-  단, 정상적인 JSON 응답이 아니라면 에러 콜백 함수가 호출됩니다.
+  단, 정상적인 JSON 응답이 아니라면 에러로 간주합니다.
 - `-1000` 미만의 `error` 값을 별도로 처리하지 않고, `0`이 아닌 경우 모두 에러로 취급합니다.
+- `error` 값이 존재하지 않는 경우, 에러가 아닌 것으로 취급합니다.
+- 에러 콜백 함수에서 `false`를 반환하지 않아도 기본 에러 메시지를 방지할 수 있습니다.
 - 에러 발생시 나타나던 `AJAX communication error` 에러 메시지가 `AJAX error`로 단순화되었고,
   디버깅에 도움을 줄 수 있는 경로 정보를 조금 더 자세히 표시합니다.
+
+콜백 방식의 사용 예제:
+
+```
+Rhymix.ajax('module.act', {}, function(data) {
+    console.log(data.message);
+});
+```
+
+```
+Rhymix.ajax('module.act', {}, function(data) {
+    console.log(data.message);
+}, function(error) {
+    alert(error.message);
+});
+```
+
+라이믹스 2.1.25부터 콜백 함수 대신 `Promise` 패턴을 사용하여 아래와 같이 반환값을 처리할 수 있습니다.
+
+```
+Rhymix.ajax('module.act', {}).then((data) => console.log(data.message));
+```
+
+```
+let data = await Rhymix.ajax('module.act', {});
+console.log(data.message);
+```
+
+에러 처리에도 아래와 같이 `try...catch` 또는 `.catch()`를 사용할 수 있습니다.
+
+```
+Rhymix.ajax('module.act', {})
+  .then((data) => console.log(data.message))
+  .catch((error) => alert(error.message));
+```
+
+```
+try {
+  let data = await Rhymix.ajax('module.act', {});
+  console.log(data.message);
+} catch (error) {
+  alert(error.message);
+}
+```
+
+콜백 함수나 `.catch()`를 사용하여 에러를 처리하지 않으면, 기본 동작으로 에러 메시지가 `alert()`되며,
+동시에 콘솔에도 에러 메시지가 출력됩니다.
+(브라우저에 따라서는 에러를 처리하더라도 콘솔에 메시지가 남을 수 있습니다.)
+
+모든 에러를 반드시 처리해야 한다는 뜻은 아닙니다.
+예를 들어 간단한 폼 검증 요청과 같은 경우에는 서버에서 에러 메시지를 반환하고 JS에서 이를 처리하지 않음으로써,
+기본 동작으로 사용자에게 에러 메시지가 표시되는 효과를 얻을 수 있습니다.
+
+서버가 리다이렉트(`redirect_url`)를 반환하는 경우, 이를 `Promise` 패턴으로 처리하려면 주의가 필요합니다.
+AJAX 처리 과정에서 리다이렉트 URL이 발견되면 100ms 후 자동으로 페이지가 전환되기 때문입니다.
+이 때 리다이렉트를 방지하려면 `Rhymix.cancelPendingRedirect()` 함수를 호출해야 합니다.
+(콜백 함수가 있는 경우에는 자동 리다이렉트가 발생하지 않습니다.)
+
+```
+Rhymix.ajax('module.act', {}).then((data) => {
+  Rhymix.cancelPendingRedirect();
+  alert('Server returned URL: ' + data.redirect_url);
+});
+```
+
+콜백 함수와 `Promise` 패턴을 동시에 사용하는 것은 권장하지 않습니다.
+이러한 경우의 동작 순서나 함수 호출 여부는 코어에서 보장하지 않고, 언제라도 예고 없이 변경될 수 있습니다.
 
 #### Rhymix.ajaxForm()
 
 ```
 Rhymix.ajaxForm(
 	form: HTMLFormElement,
-	success?: (data?: {}, xhr?: jqXHR): void,
-	error?: (data?: {}, xhr?: jqXHR): void,
+	callback_success?: (data?: {}, xhr?: jqXHR): void,
+	callback_error?: (data?: {}, xhr?: jqXHR): void,
 ): void
 ```
 

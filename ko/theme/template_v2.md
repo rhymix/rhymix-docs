@@ -140,6 +140,7 @@ v1 호환 문법은 일반적인 CSS, JS 문법과 충돌하는 경우가 많으
 - `<script>` 태그 안
 - `<style>` 태그 안
 - `onclick` 등 이벤트 핸들러를 선언하는 속성 안
+- `pattern` 속성 안 (2.1.25~)
 - `<a href="javascript:...">` 등 JS를 사용하는 속성 안
 - 모든 태그의 `style` 속성 안
 
