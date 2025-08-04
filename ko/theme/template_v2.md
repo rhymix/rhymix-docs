@@ -199,23 +199,23 @@ v2에서 지원하는 모든 필터의 목록은 아래의 표를 참고하십�
 | autoescape | 자동 escape (이중 인코딩하지 않음) | |
 | autolang   | 자동 escape하되, 언어코드인 경우 escape하지 않음 | |
 | escape     | 강제 escape (이중 인코딩) | |
-| noescape   | escape하지 않음 | |
 | escapejs   | JS 문자열에 넣을 수 있는 형태로 escape | |
-| json       | JSON으로 인코딩 (JS 문맥에서는 noescape와 함께 사용) | |
+| noescape   | escape하지 않음 | |
+| json       | JSON으로 인코딩 (`@json`으로 대체 권장) | |
 | strip      | strip_tags() | |
 | strip_tags | strip_tags() | |
 | trim       | trim() | |
 | urlencode  | rawurlencode() | |
 | lower      | 소문자로 변환 | |
 | upper      | 대문자로 변환 | |
-| nl2br      | 개행 문자를 `<br>`로 변환 (noescape 자동 적용) | |
+| nl2br      | 개행 문자를 `<br>`로 변환 | |
 | join       | 배열을 문자열로 합침 | 구분자, 기본값은 `,` |
 | date       | 타임스탬프 포맷 | 사용할 포맷, 기본값은 `Y-m-d H:i:s` |
 | format     | 숫자에 천 단위 쉼표 표시 | 소수점 이하 자릿수, 기본값은 0 |
 | number_format | 위와 같음 | |
 | shorten    | 숫자를 `123.4K`와 같은 형태로 표시 | 소숫점 이하 자릿수, 기본값은 2 |
 | number_shorten | 위와 같음 | |
-| link       | 문자열을 링크로 표시 (noescape 자동 적용) | 링크 텍스트, 기본값은 원본 문자열 |
+| link       | 문자열을 링크로 표시 | 링크 텍스트, 기본값은 원본 문자열 |
 
 ### 조건문 및 루프문
 
