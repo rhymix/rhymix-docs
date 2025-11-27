@@ -789,6 +789,7 @@ PHP 코드 내에서 함수를 선언하거나 클로져를 사용할 경우,
 	@php
 		$source = [ ... ];
 	@endphp
+	
 	@php
 	@verbatim
 		// $source is undefined here
