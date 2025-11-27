@@ -787,26 +787,40 @@ PHP 코드 내에서 함수를 선언하거나 클로져를 사용할 경우,
 
     [v2 정규 문법]
 	@php
+		$source = [ ... ];
+	@endphp
+	@php
 	@verbatim
+		// $source is undefined here
 		$result = array_filter($source, function($item) use(&$reference) {
 			return isset($reference[$item]);
 		});
 	@endverbatim
 	@endphp
 
+	<!-- $result is undefined here -->
+	@foreach ($result as $item)
+		<div>{{ $item }}</div>
+	@endforeach
+
 반면, 아래의 예제에서는 함수와 관련된 변수들만 예외 처리하므로,
-위에서 선언한 `$source`에 접근할 수 있고, 이후에도 `$target` 변수를 사용할 수 있습니다.
+위에서 선언한 `$source`에 접근할 수 있고, 이후에도 `$result` 변수를 사용할 수 있습니다.
 
     [v2 정규 문법]
 	@php
-		$target = array_filter($source, function(\$item) use(&\$reference) {
+		$source = [ ... ];
+		$result = array_filter($source, function(\$item) use(&\$reference) {
 			return isset(\$reference[\$item]);
 		});
 	@endphp
 
+	@foreach ($result as $item)
+		<div>{{ $item }}</div>
+	@endforeach
+
 이 방법으로 해결할 수 없는 복잡한 로직을 작성해야 한다면
 별도의 PHP 파일에 코드를 작성한 후 인클루드하는 것을 권장합니다.
-템플릿 내에서 함수를 선언하거나 대량의 CSS, JS 코드를 직접 작성하는 "스파게티 코드"는 원칙적으로 권장하지 않으며,
+템플릿에서 함수를 선언하거나 대량의 로직를 직접 구현하는 "스파게티 코드"는 원칙적으로 권장하지 않으며,
 이러한 코딩 방식을 용이하게 만드는 것은 라이믹스의 지향점이 아닙니다.
 
 ### 주석
