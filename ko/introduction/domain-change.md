@@ -42,5 +42,5 @@
 XE 1.x 방식에 의존하는 일부 자료를 위한 호환성을 위한 것이며, 코어에서 참조하지 않습니다.)
 
 단, "등록되지 않은 도메인 처리" 옵션이 잘못되어 기존 도메인으로 계속 리다이렉트되는 경우
-`config.php`에서 `unregistered_domain_action` 설정을 `display`로 바꾸어 주면
+`files/config/config.php`에서 `unregistered_domain_action` 설정을 `display`로 바꾸어 주면
 도움이 될 수 있습니다.
