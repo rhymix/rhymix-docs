@@ -152,3 +152,6 @@
 | install | menu.getModuleListInSitemap | after | |
 | menu | menu.getModuleListInSitemap | after | |
 | ncenterlite | ncenterlite._insertNotify | before/after | |
+| Rhymix Framework | mail.send | before/after | |
+| Rhymix Framework | push.send | before/after | |
+| Rhymix Framework | sms.send | before/after | |
