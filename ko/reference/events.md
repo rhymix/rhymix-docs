@@ -14,12 +14,20 @@
 
 ### 코어 라이프사이클
 
-| 이벤트 이름          | 호출 시점      | 비고 |
+| 순서 | 이벤트 이름          | 호출 시점      | 비고 |
 |--------------------|--------------|------|
-| moduleHandler.init | before/after | |
-| moduleHandler.proc | after        | |
-| layout             | before       | |
-| display            | before/after | |
+| 1   | moduleHandler.init | before/after | |
+| 2   | moduleObject.proc  | before       | |
+| 3   | act:모듈명.액션명     | before/after | |
+| 4   | moduleObject.proc  | after        | |
+| 5   | moduleHandler.proc | after        | |
+| 6   | layout             | before       | |
+| 7   | display            | before/after | |
+
+`act:모듈명.액션명` 형태의 이벤트는
+모듈에서는 `<eventHandler beforeAction="모듈명.액션명">` 및 `<eventHandler afterAction="모듈명.액션명">` 문법을 사용해서 구독할 수 있고,
+플러그인에서는 `$this->beforeAction()` 및 `$this->afterAction()` 메소드를 사용해서 구독합니다.
+특정 액션이 호출되었을 때만 발생하므로, 모든 요청에서 반드시 거치는 `moduleObject.proc` 이벤트를 구독하는 것보다 효율적입니다.
 
 ### 모듈 라이프사이클
 
