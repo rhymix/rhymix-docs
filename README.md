@@ -78,6 +78,7 @@
     - [전역 함수](./ko/reference/frontend/global_functions.md)
     - [레거시 전역 함수](./ko/reference/frontend/legacy_functions.md)
     - [String 확장](./ko/reference/frontend/string_extensions.md)
+- [이벤트 목록](./ko/reference/events.md)
 
 ### 코어 개발 참여
 
