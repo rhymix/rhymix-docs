@@ -95,6 +95,16 @@ public static function compareStrings(
 
 Compare two strings in constant time.
 
+#### isSameOrigin()
+
+```
+public static function isSameOrigin(): bool
+```
+
+Check if the current request comes from the same origin.
+This method is designed for GET, OPTIONS, and other "relatively safe" requests.
+For POST requests, use checkCSRF() instead.
+
 #### checkCSRF()
 
 ```
@@ -102,8 +112,8 @@ public static function checkCSRF(?string $referer = null): bool
 ```
 
 Check if the current request seems to be a CSRF attack.
-This method returns true if the request seems to be innocent,
-and false if it seems to be a CSRF attack.
+This method is designed for POST requests and supports CSRF token verification.
+For other methods, use isSameOrigin() instead.
 
 #### checkXXE()
 
